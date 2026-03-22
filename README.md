@@ -24,7 +24,7 @@ Sustav pametne garaže implementiran na ESP32 koji demonstrira rad s višestruki
 - HC-SR04
 
 ## Wokwi simulacija
-[(link ako želiš dodati)](https://wokwi.com/projects/459217890839149569)
+[(Wokwi simulacija)](https://wokwi.com/projects/459217890839149569)
 
 ## Autor
 Borna Šafar
