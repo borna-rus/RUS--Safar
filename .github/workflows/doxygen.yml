@@ -23,6 +23,7 @@ jobs:
 
       - name: Generate Documentation
         run: |
+          cd Lab1
           doxygen Doxyfile
           if [ ! -f "docs/index.html" ]; then
             echo "Error: docs/index.html not found!"
@@ -33,4 +34,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
+          publish_dir: ./Lab1/docs
