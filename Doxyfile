@@ -56,7 +56,7 @@ OPTIMIZE_OUTPUT_FOR_C  = YES                         # Stil prikaza prilagođen 
 # Dijagrami i grafički prikazi (Graphviz/DOT)
 #-----------------------------------------------------------------------------
 HAVE_DOT               = YES                         # Omogući korištenje Graphviz alata
-DOT_PATH               =                # Putanja do `dot` programa (ovisno o sustavu)
+DOT_PATH               =
 DOT_NUM_THREADS        = 2                           # Paralelno generiranje dijagrama
 DOT_FONTNAME           = Helvetica                   # Font u dijagramima
 DOT_FONTSIZE           = 10                          # Veličina fonta
