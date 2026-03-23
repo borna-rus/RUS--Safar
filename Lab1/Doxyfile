@@ -2,7 +2,7 @@
 # Doxygen konfiguracijska datoteka za C jezik — ugradbeni sustav s prekidima
 #=============================================================================
 
-PROJECT_NAME           = "RUS_Lab1_prekid"
+PROJECT_NAME           = "RUS_Lab1"
 PROJECT_BRIEF          = "Lab1: Ugradbeni sustav s prekidima u C jeziku"
 OUTPUT_DIRECTORY       = docs
 CREATE_SUBDIRS         = YES
