@@ -16,7 +16,7 @@ FILE_PATTERNS          = *.c *.h *.ino
 EXTENSION_MAPPING      = ino=c
 
 GENERATE_HTML          = YES
-HTML_OUTPUT            = html
+HTML_OUTPUT            = .
 GENERATE_LATEX         = NO
 GENERATE_RTF           = NO
 
