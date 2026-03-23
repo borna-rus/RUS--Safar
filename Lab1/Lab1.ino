@@ -45,13 +45,17 @@ unsigned long lastInterruptTime[3] = {0,0,0};
 const int DEBOUNCE_DELAY = 200;
 
 // ================= ISR =================
-
+/**
+ * @brief Interrupt za tipku vrata
+ */
 void IRAM_ATTR ISR_DOOR() {
   if (millis() - lastInterruptTime[0] < DEBOUNCE_DELAY) return;
   lastInterruptTime[0] = millis();
   doorPressed = true;
 }
-
+/**
+ * @brief Interrupt za STOP tipku (najveći prioritet)
+ */
 void IRAM_ATTR ISR_STOP() {
   if (millis() - lastInterruptTime[1] < DEBOUNCE_DELAY) return;
   lastInterruptTime[1] = millis();
@@ -95,7 +99,16 @@ void setup() {
 }
 
 // ================= LOOP =================
-
+/**
+ * @brief Glavna petlja programa
+ *
+ * Upravljanje:
+ * - STOP (prioritet)
+ * - vrata
+ * - servis mod
+ * - detekcija auta
+ * - automatsko zatvaranje
+ */
 void loop() {
 
   // STOP ima najveći prioritet
