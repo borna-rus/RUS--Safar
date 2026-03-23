@@ -29,7 +29,7 @@ EXTENSION_MAPPING      = ino=c                       # Mapiraj .ino kao C datote
 # Izlazni formati
 #-----------------------------------------------------------------------------
 GENERATE_HTML          = YES                         # Generiraj HTML dokumentaciju
-HTML_OUTPUT            = html                        # HTML izlazni direktorij (unutar OUTPUT_DIRECTORY)
+HTML_OUTPUT            = .                        # HTML izlazni direktorij (unutar OUTPUT_DIRECTORY)
 GENERATE_LATEX         = NO                          # Ne generiraj LaTeX dokumentaciju
 GENERATE_RTF           = NO                          # Ne generiraj RTF dokumentaciju
 
