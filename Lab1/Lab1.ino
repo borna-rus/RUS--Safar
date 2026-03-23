@@ -1,7 +1,9 @@
 /**
  * Smart Garage System - ESP32 verzija
  */
-
+/**
+ * @brief Glavna funkcija programa
+ */
 #include <Arduino.h>
 
 // ================= PINOVI =================
