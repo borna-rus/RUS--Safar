@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['measuredistance_0',['measureDistance',['../d1/d16/Lab1_8ino.html#a24db61917b9da8bb4b87af136cbd345f',1,'Lab1.ino']]]
+  ['hwtimer_0',['hwTimer',['../d1/d16/Lab1_8ino.html#a7f4cb9eca9dcf4fa49859c221f48ec90',1,'Lab1.ino']]]
 ];

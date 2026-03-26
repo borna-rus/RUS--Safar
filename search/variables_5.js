@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timer_5finterval_0',['TIMER_INTERVAL',['../d1/d16/Lab1_8ino.html#a49028f95e5f8462d2e681239c64b555d',1,'Lab1.ino']]]
+  ['lastinterrupt_0',['lastInterrupt',['../d1/d16/Lab1_8ino.html#a4d162637a2a40c08d5c3cc06ca6efab4',1,'Lab1.ino']]]
 ];

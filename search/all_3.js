@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['echo_5fpin_0',['ECHO_PIN',['../d1/d16/Lab1_8ino.html#acea96cea4a13b6cb38e57a86788adf90',1,'Lab1.ino']]],
-  ['emergencystop_1',['emergencyStop',['../d1/d16/Lab1_8ino.html#ad9917a007b54d44589414fbda45dda17',1,'Lab1.ino']]]
+  ['debounce_5fms_0',['DEBOUNCE_MS',['../d1/d16/Lab1_8ino.html#add56dedbc09f82766e39588e01978e7d',1,'Lab1.ino']]],
+  ['dooropen_1',['doorOpen',['../d1/d16/Lab1_8ino.html#acf5414a7722ecbe7fb5dc994a74fcd68',1,'Lab1.ino']]]
 ];

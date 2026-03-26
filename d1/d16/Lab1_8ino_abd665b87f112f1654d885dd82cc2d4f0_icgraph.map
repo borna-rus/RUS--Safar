@@ -1,5 +1,5 @@
 <map id="ISR_DOOR" name="ISR_DOOR">
-<area shape="rect" id="Node000001" title="Interrupt za tipku vrata." alt="" coords="112,5,201,31"/>
-<area shape="rect" id="Node000002" href="$d1/d16/Lab1_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title=" " alt="" coords="5,5,64,31"/>
+<area shape="rect" id="Node000001" title="ISR za DOOR tipku &#45; srednji prioritet (P3)." alt="" coords="112,5,201,31"/>
+<area shape="rect" id="Node000002" href="$d1/d16/Lab1_8ino.html#a4fc01d736fe50cf5b977f755b675f11d" title="Inicijalizacija sustava &#45; pinovi, timer, prekidi." alt="" coords="5,5,64,31"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="98,21,64,21,64,15,98,15"/>
 </map>

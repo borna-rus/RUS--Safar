@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['isr_5fdoor_0',['ISR_DOOR',['../d1/d16/Lab1_8ino.html#abd665b87f112f1654d885dd82cc2d4f0',1,'Lab1.ino']]],
-  ['isr_5fservice_1',['ISR_SERVICE',['../d1/d16/Lab1_8ino.html#a393a9c328a7e2868d304c373218d59f9',1,'Lab1.ino']]],
-  ['isr_5fstop_2',['ISR_STOP',['../d1/d16/Lab1_8ino.html#adeb2908c3c34987ee1085b558d06d69a',1,'Lab1.ino']]]
+  ['echo_5fpin_0',['ECHO_PIN',['../d1/d16/Lab1_8ino.html#acea96cea4a13b6cb38e57a86788adf90',1,'Lab1.ino']]],
+  ['emergencystop_1',['emergencyStop',['../d1/d16/Lab1_8ino.html#ad9917a007b54d44589414fbda45dda17',1,'Lab1.ino']]]
 ];
