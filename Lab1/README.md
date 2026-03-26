@@ -67,7 +67,6 @@ Sustav upravlja garažnim vratima putem tipkala, senzora udaljenosti i hardware 
 | Tipka servis | GPIO 25 |
 | HC-SR04 TRIG | GPIO 4 |
 | HC-SR04 ECHO | GPIO 16 |
-
 **Napomena:** GPIO 26 korišten je za STOP tipku umjesto GPIO 33 jer su GPIO 33–39 input-only pinovi bez internog pull-up otpornika. GPIO 16 korišten je za ECHO umjesto GPIO 5 koji je strapping pin.
 
 ---
