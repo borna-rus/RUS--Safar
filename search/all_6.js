@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hwtimer_0',['hwTimer',['../d1/d16/Lab1_8ino.html#a7f4cb9eca9dcf4fa49859c221f48ec90',1,'Lab1.ino']]]
+  ['garage_20system_20–_20esp32_0',['Smart Garage System – ESP32',['../index.html',1,'']]],
+  ['graph_20cfg_1',['Control Flow Graph (CFG)',['../index.html#autotoc_md21',1,'']]]
 ];

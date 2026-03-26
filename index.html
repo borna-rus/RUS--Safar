@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>RUS_Lab1: Main Page</title>
+<title>Smart Garage System: Smart Garage System – ESP32</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,9 +25,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">RUS_Lab1
+   <div id="projectname">Smart Garage System
    </div>
-   <div id="projectbrief">Lab1: Ugradbeni sustav s prekidima u C jeziku</div>
+   <div id="projectbrief">Lab1: Upravljanje visestrukim prekidima i prioritetima na ESP32</div>
   </td>
  </tr>
  </tbody>
@@ -89,10 +89,232 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 </div>
 
-<div class="header">
-  <div class="headertitle"><div class="title">RUS_Lab1 Documentation</div></div>
+<div><div class="header">
+  <div class="headertitle"><div class="title">Smart Garage System – ESP32 </div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p><a class="anchor" id="md_README"></a> Projekt demonstrira upravljanje višestrukim prekidima i njihovim prioritetima na ESP32 mikrokontroleru. Sustav simulira pametnu garažu s automatskim zatvaranjem vrata, detekcijom vozila i mogućnošću servisnog moda.</p>
+<p>Razvoj i testiranje provedeni su u <a href="https://wokwi.com">Wokwi simulatoru</a>.</p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md2"></a>
+Sadržaj</h1>
+<ul>
+<li>Opis sustava</li>
+<li>Korištene komponente</li>
+<li>Shema spajanja</li>
+<li>Prioriteti prekida</li>
+<li>Opis prekida i ISR funkcija</li>
+<li>Zaštita resursa</li>
+<li>Control Flow Graph (CFG)</li>
+<li>Testiranje</li>
+<li>Pokretanje projekta</li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md4"></a>
+Opis sustava</h1>
+<p>Sustav upravlja garažnim vratima putem tipkala, senzora udaljenosti i hardware timera. Svaki izvor događaja obrađuje se kao prekid s definiranim prioritetom. Viši prioritet uvijek ima prednost pri obradi.</p>
+<p><b>Funkcionalnosti:</b></p><ul>
+<li>Otvaranje i zatvaranje vrata tipkalom</li>
+<li>Automatsko zatvaranje vrata nakon 5 sekundi ako nema vozila ispred</li>
+<li>Detekcija vozila HC-SR04 senzorom (sprječava auto-zatvaranje)</li>
+<li>Emergency stop koji trenutno zaustavlja sve operacije</li>
+<li>Servis mod koji onemogućuje upravljanje vratima</li>
+<li>Hardware timer koji okida ISR svaku sekundu</li>
+</ul>
+<hr  />
+<h1><a class="anchor" id="autotoc_md6"></a>
+Korištene komponente</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Komponenta   </th><th class="markdownTableHeadNone">Opis    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">ESP32 DevKit C v4   </td><td class="markdownTableBodyNone">Mikrokontroler    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">HC-SR04   </td><td class="markdownTableBodyNone">Ultrazvučni senzor udaljenosti    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Tipkalo zeleno   </td><td class="markdownTableBodyNone">Upravljanje vratima    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Tipkalo crveno   </td><td class="markdownTableBodyNone">Emergency stop    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Tipkalo žuto   </td><td class="markdownTableBodyNone">Servis mod    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">LED zelena   </td><td class="markdownTableBodyNone">Status vrata (GPIO 18)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">LED crvena   </td><td class="markdownTableBodyNone">Emergency stop (GPIO 19)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">LED žuta   </td><td class="markdownTableBodyNone">Servis mod (GPIO 21)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">LED narančasta   </td><td class="markdownTableBodyNone">Detekcija auta (GPIO 22)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">LED plava   </td><td class="markdownTableBodyNone">Timer tik (GPIO 23)   </td></tr>
+</table>
+<hr  />
+<h1><a class="anchor" id="autotoc_md8"></a>
+Shema spajanja</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Komponenta   </th><th class="markdownTableHeadNone">ESP32 pin    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">LED vrata   </td><td class="markdownTableBodyNone">GPIO 18    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">LED stop   </td><td class="markdownTableBodyNone">GPIO 19    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">LED servis   </td><td class="markdownTableBodyNone">GPIO 21    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">LED alert   </td><td class="markdownTableBodyNone">GPIO 22    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">LED timer   </td><td class="markdownTableBodyNone">GPIO 23    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Tipka vrata   </td><td class="markdownTableBodyNone">GPIO 13    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Tipka stop   </td><td class="markdownTableBodyNone">GPIO 26    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">Tipka servis   </td><td class="markdownTableBodyNone">GPIO 25    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">HC-SR04 TRIG   </td><td class="markdownTableBodyNone">GPIO 4    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">HC-SR04 ECHO   </td><td class="markdownTableBodyNone">GPIO 16   </td></tr>
+</table>
+<blockquote class="doxtable">
+<p>&zwj;<b>Napomena:</b> GPIO 26 korišten je za STOP tipku umjesto GPIO 33 jer su GPIO 33–39 input-only pinovi bez internog pull-up otpornika. GPIO 16 korišten je za ECHO umjesto GPIO 5 koji je strapping pin. </p>
+</blockquote>
+<h1><a class="anchor" id="autotoc_md9"></a>
+&lt;/blockquote&gt;</h1>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Prioriteti prekida</h1>
+<p>Prioriteti su definirani redoslijedom provjere zastavica u <code><a class="el" href="d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a></code> funkciji. ESP32 ne podržava klasične nested interrupts na razini hardvera kao ARM Cortex-M, već koristi FreeRTOS task prioritete. Softverski prioritet postignut je redoslijedom obrade zastavica.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Prioritet   </th><th class="markdownTableHeadNone">Izvor   </th><th class="markdownTableHeadNone">GPIO   </th><th class="markdownTableHeadNone">Tip   </th><th class="markdownTableHeadNone">Opis    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">P1 – najviši   </td><td class="markdownTableBodyNone">STOP tipka   </td><td class="markdownTableBodyNone">26   </td><td class="markdownTableBodyNone">Vanjski prekid (FALLING)   </td><td class="markdownTableBodyNone">Emergency stop, zaustavlja sve    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">P2   </td><td class="markdownTableBodyNone">Hardware Timer   </td><td class="markdownTableBodyNone">—   </td><td class="markdownTableBodyNone">Timer ISR (1 Hz)   </td><td class="markdownTableBodyNone">Periodička logika, auto-close    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">P3   </td><td class="markdownTableBodyNone">DOOR tipka   </td><td class="markdownTableBodyNone">13   </td><td class="markdownTableBodyNone">Vanjski prekid (FALLING)   </td><td class="markdownTableBodyNone">Toggle vrata    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">P4   </td><td class="markdownTableBodyNone">SERVICE tipka   </td><td class="markdownTableBodyNone">25   </td><td class="markdownTableBodyNone">Vanjski prekid (FALLING)   </td><td class="markdownTableBodyNone">Toggle servis mod    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">P5 – najniži   </td><td class="markdownTableBodyNone">HC-SR04 senzor   </td><td class="markdownTableBodyNone">4 / 16   </td><td class="markdownTableBodyNone">Polling u <a class="el" href="d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a>   </td><td class="markdownTableBodyNone">Detekcija vozila   </td></tr>
+</table>
+<hr  />
+<h1><a class="anchor" id="autotoc_md12"></a>
+Opis prekida i ISR funkcija</h1>
+<h2><a class="anchor" id="autotoc_md13"></a>
+ISR_STOP — P1 (najviši prioritet)</h2>
+<p>Okida se na FALLING brid GPIO 26. Postavlja <code>flag_stop = true</code>. U <code><a class="el" href="d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a></code> se obrađuje prva — odmah zatvara vrata i blokira sve ostale operacije dok se ne pošalje <code>r</code> kroz Serial Monitor.</p>
+<h2><a class="anchor" id="autotoc_md14"></a>
+ISR_HWTimer — P2</h2>
+<p>Hardware timer okida ISR svaku sekundu precizno. Postavlja <code>flag_timer = true</code>. Nema debounce logike jer je timer stabilan izvor bez šuma. Koristi se za auto-zatvaranje vrata i periodički ispis stanja.</p>
+<h2><a class="anchor" id="autotoc_md15"></a>
+ISR_DOOR — P3</h2>
+<p>Okida se na FALLING brid GPIO 13. Postavlja <code>flag_door = true</code>. Ignorira se ako je servis mod aktivan. Debounce prag je 200 ms.</p>
+<h2><a class="anchor" id="autotoc_md16"></a>
+ISR_SERVICE — P4</h2>
+<p>Okida se na FALLING brid GPIO 25. Postavlja <code>flag_service = true</code>. Uključuje ili isključuje servis mod. Debounce prag je 200 ms.</p>
+<h2><a class="anchor" id="autotoc_md17"></a>
+HC-SR04 senzor — P5 (najniži prioritet)</h2>
+<p>Nije prekid već polling unutar <code><a class="el" href="d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a></code>. Mjeri udaljenost svaki prolaz petlje. Ako je udaljenost manja od 50 cm, auto zatvaranje se suspendira.</p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md19"></a>
+Zaštita resursa</h1>
+<p>Dijeljene varijable između ISR funkcija i <code><a class="el" href="d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a></code> zaštićene su na dva načina:</p>
+<p><b>Volatile zastavice</b> — sve zastavice (<code>flag_stop</code>, <code>flag_door</code>, <code>flag_service</code>, <code>flag_timer</code>) deklarirane su kao <code>volatile</code> što sprječava optimizaciju od strane kompajlera.</p>
+<p><b>Kritične sekcije</b> — svaki pristup zastavicama zaštićen je mutexom:</p><ul>
+<li>U ISR funkcijama: <code>portENTER_CRITICAL_ISR(&amp;mux)</code> / <code>portEXIT_CRITICAL_ISR(&amp;mux)</code></li>
+<li>U <code><a class="el" href="d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a></code>: <code>portENTER_CRITICAL(&amp;mux)</code> / <code>portEXIT_CRITICAL(&amp;mux)</code></li>
+</ul>
+<p>Ovo sprječava race condition u slučaju da ISR prekine <code><a class="el" href="d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a></code> točno u trenutku čitanja zastavice.</p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md21"></a>
+Control Flow Graph (CFG)</h1>
+<p>Dijagram prikazuje tok izvršavanja glavnog programa i skokove u ISR rutine.</p>
+<div class="fragment"><div class="line">flowchart TD</div>
+<div class="line">    A([START]) --&gt; B[setup:\ninit pinovi, timer, prekidi]</div>
+<div class="line">    B --&gt; C[loop start]</div>
+<div class="line"> </div>
+<div class="line">    C --&gt; D{flag_stop?}</div>
+<div class="line">    D -- DA --&gt; E[emergencyStop = true\ndoorOpen = false]</div>
+<div class="line">    E --&gt; F{Serial &#39;r&#39;?}</div>
+<div class="line">    F -- DA --&gt; G[emergencyStop = false\nreset LED]</div>
+<div class="line">    F -- NE --&gt; H[trepći LED_STOP\nreturn]</div>
+<div class="line">    G --&gt; C</div>
+<div class="line">    H --&gt; C</div>
+<div class="line">    D -- NE --&gt; I{flag_timer?}</div>
+<div class="line"> </div>
+<div class="line">    I -- DA --&gt; J[timerTickCount++\npuls LED_TIMER]</div>
+<div class="line">    J --&gt; K{doorOpen &amp;&amp;\n!carDetected &amp;&amp;\nticks &gt;= 5?}</div>
+<div class="line">    K -- DA --&gt; L[doorOpen = false\nAUTO CLOSE]</div>
+<div class="line">    K -- NE --&gt; M[ispis stanja]</div>
+<div class="line">    L --&gt; M</div>
+<div class="line">    M --&gt; N{flag_door?}</div>
+<div class="line">    I -- NE --&gt; N</div>
+<div class="line"> </div>
+<div class="line">    N -- DA --&gt; O{serviceMode?}</div>
+<div class="line">    O -- DA --&gt; P[ispis: door zanemaren]</div>
+<div class="line">    O -- NE --&gt; Q[toggle doorOpen\nreset tickCount]</div>
+<div class="line">    P --&gt; R{flag_service?}</div>
+<div class="line">    Q --&gt; R</div>
+<div class="line">    N -- NE --&gt; R</div>
+<div class="line"> </div>
+<div class="line">    R -- DA --&gt; S[toggle serviceMode]</div>
+<div class="line">    S --&gt; T[measureDistance]</div>
+<div class="line">    R -- NE --&gt; T</div>
+<div class="line"> </div>
+<div class="line">    T --&gt; U{dist &lt; 50cm?}</div>
+<div class="line">    U -- DA --&gt; V[carDetected = true\nLED_ALERT ON]</div>
+<div class="line">    U -- NE --&gt; W[carDetected = false\nLED_ALERT OFF]</div>
+<div class="line">    V --&gt; X[ažuriraj LED-ice]</div>
+<div class="line">    W --&gt; X</div>
+<div class="line">    X --&gt; C</div>
+<div class="line"> </div>
+<div class="line">    subgraph ISR rutine</div>
+<div class="line">        ISR1([ISR_STOP\nGPIO 26 FALLING]) --&gt; ISR1A[debounce\ncheck]</div>
+<div class="line">        ISR1A --&gt; ISR1B[flag_stop = true]</div>
+<div class="line"> </div>
+<div class="line">        ISR2([ISR_HWTimer\n1 Hz]) --&gt; ISR2A[flag_timer = true]</div>
+<div class="line"> </div>
+<div class="line">        ISR3([ISR_DOOR\nGPIO 13 FALLING]) --&gt; ISR3A[debounce\ncheck]</div>
+<div class="line">        ISR3A --&gt; ISR3B[flag_door = true]</div>
+<div class="line"> </div>
+<div class="line">        ISR4([ISR_SERVICE\nGPIO 25 FALLING]) --&gt; ISR4A[debounce\ncheck]</div>
+<div class="line">        ISR4A --&gt; ISR4B[flag_service = true]</div>
+<div class="line">    end</div>
+</div><!-- fragment --><hr  />
+<h1><a class="anchor" id="autotoc_md23"></a>
+Testiranje</h1>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Test   </th><th class="markdownTableHeadNone">Akcija   </th><th class="markdownTableHeadNone">Očekivani rezultat    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">T1   </td><td class="markdownTableBodyNone">Pritisni zelenu tipku   </td><td class="markdownTableBodyNone">Serial: <code>[P3] VRATA: OTVORENA</code> / <code>ZATVORENA</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">T2   </td><td class="markdownTableBodyNone">Pritisni crvenu tipku   </td><td class="markdownTableBodyNone">Serial: <code>[P1] EMERGENCY STOP AKTIVIRAN</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">T3   </td><td class="markdownTableBodyNone">Upiši <code>r</code> u Serial Monitor   </td><td class="markdownTableBodyNone">Serial: <code>[P1] RESET</code>, sustav nastavlja rad    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">T4   </td><td class="markdownTableBodyNone">Pritisni žutu tipku   </td><td class="markdownTableBodyNone">Serial: <code>[P4] SERVIS MOD: UKLJUCEN</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">T5   </td><td class="markdownTableBodyNone">Pritisni zelenu dok je servis aktivan   </td><td class="markdownTableBodyNone">Serial: <code>[P3] DOOR zanemaren</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">T6   </td><td class="markdownTableBodyNone">Otvori vrata, čekaj 5s bez auta   </td><td class="markdownTableBodyNone">Serial: <code>[P2] AUTO CLOSE</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">T7   </td><td class="markdownTableBodyNone">Otvori vrata, postavi senzor &lt; 50cm   </td><td class="markdownTableBodyNone">Auto-close se ne dogodi    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">T8   </td><td class="markdownTableBodyNone">Pritisni STOP dok su vrata otvorena   </td><td class="markdownTableBodyNone">Vrata se odmah zatvaraju   </td></tr>
+</table>
+<hr  />
+<h1><a class="anchor" id="autotoc_md25"></a>
+Pokretanje projekta</h1>
+<h2><a class="anchor" id="autotoc_md26"></a>
+Wokwi simulator</h2>
+<p><a href="https://wokwi.com/projects/459217890839149569">https://wokwi.com/projects/459217890839149569</a></p>
+<hr  />
+<h1><a class="anchor" id="autotoc_md28"></a>
+Dokumentacija</h1>
+<p>Tehnička dokumentacija generirana je automatski pomoću Doxygena i dostupna je na GitHub Pages:</p>
+<p><code><a href="https://borna-rus.github.io/RUS--Safar/">https://borna-rus.github.io/RUS--Safar/</a></code> </p>
+</div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

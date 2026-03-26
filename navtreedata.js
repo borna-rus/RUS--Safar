@@ -24,7 +24,8 @@
 */
 var NAVTREE =
 [
-  [ "RUS_Lab1", "index.html", [
+  [ "Smart Garage System", "index.html", [
+    [ "Smart Garage System – ESP32", "index.html", "index" ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
