@@ -47,13 +47,13 @@
       "left": 157.4,
       "attrs": { "color": "orange" }
     },
-    { "type": "wokwi-led", "id": "led5", "top": 63.6, "left": 157.4, "attrs": { "color": "red" } },
+    { "type": "wokwi-led", "id": "led5", "top": 63.6, "left": 243.8, "attrs": { "color": "red" } },
     {
       "type": "wokwi-hc-sr04",
       "id": "ultrasonic1",
       "top": -46.5,
       "left": -215.3,
-      "attrs": { "distance": "225" }
+      "attrs": { "distance": "320" }
     },
     { "type": "wokwi-text", "id": "text1", "top": 9.6, "left": 192, "attrs": { "text": "vrata" } },
     { "type": "wokwi-text", "id": "text2", "top": 67.2, "left": 192, "attrs": { "text": "STOP" } },
@@ -91,7 +91,6 @@
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
     [ "esp:RX", "$serialMonitor:TX", "", [] ],
-    [ "led5:A", "esp:19", "green", [ "v0" ] ],
     [ "led1:A", "esp:21", "green", [ "v0" ] ],
     [ "led4:A", "esp:22", "green", [ "v0" ] ],
     [ "led3:A", "esp:23", "green", [ "v0" ] ],
@@ -100,17 +99,18 @@
     [ "led1:C", "esp:GND.2", "green", [ "v0" ] ],
     [ "led4:C", "esp:GND.2", "green", [ "v0" ] ],
     [ "led3:C", "esp:GND.2", "green", [ "v0" ] ],
-    [ "btn3:1.l", "esp:33", "green", [ "h-38.4", "v-220.8" ] ],
-    [ "btn1:1.l", "esp:25", "green", [ "h-163.2", "v-259.2" ] ],
+    [ "btn1:1.l", "esp:25", "green", [ "h-153.6", "v-259.2" ] ],
     [ "ultrasonic1:VCC", "esp:5V", "red", [ "v0" ] ],
     [ "ultrasonic1:GND", "esp:GND.1", "black", [ "v0" ] ],
     [ "ultrasonic1:TRIG", "esp:4", "green", [ "v96", "h234.76" ] ],
-    [ "esp:5", "ultrasonic1:ECHO", "green", [ "h-220" ] ],
     [ "led2:A", "esp:18", "green", [ "v0" ] ],
     [ "btn2:1.l", "esp:GND.1", "green", [ "h-19.2", "v-172.8" ] ],
     [ "btn2:2.l", "esp:13", "green", [ "h-9.6", "v-182.2" ] ],
     [ "btn3:2.l", "esp:GND.1", "green", [ "h0" ] ],
-    [ "btn1:2.l", "esp:GND.1", "green", [ "h0" ] ]
+    [ "btn1:2.l", "esp:GND.1", "green", [ "h-163.2", "v-230.2" ] ],
+    [ "ultrasonic1:ECHO", "esp:16", "green", [ "v0" ] ],
+    [ "led5:A", "esp:19", "green", [ "v0" ] ],
+    [ "btn3:1.l", "esp:26", "green", [ "h0" ] ]
   ],
   "dependencies": {}
 }
