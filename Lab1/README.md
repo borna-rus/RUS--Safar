@@ -205,4 +205,4 @@ https://wokwi.com/projects/459217890839149569
 
 Tehnička dokumentacija generirana je automatski pomoću Doxygena i dostupna je na GitHub Pages:
 
-`https://borna-rus.github.io/RUS--Safar/`
+https://borna-rus.github.io/RUS--Safar/
