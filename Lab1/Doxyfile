@@ -20,7 +20,7 @@ USE_MDFILE_AS_MAINPAGE = README.md
 #-----------------------------------------------------------------------------
 # Izvorne datoteke
 #-----------------------------------------------------------------------------
-INPUT                  = .
+INPUT                  = . README.md
 RECURSIVE              = YES
 FILE_PATTERNS          = *.c *.h *.ino *.md
 EXTENSION_MAPPING      = ino=c
