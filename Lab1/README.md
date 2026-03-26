@@ -196,19 +196,7 @@ flowchart TD
 
 ### Wokwi simulator
 
-1. Otvori [wokwi.com](https://wokwi.com) i kreiraj novi ESP32 projekt
-2. Kopiraj `smart_garage_final.ino` u editor
-3. Kopiraj `diagram.json` za shemu
-4. Pokreni simulaciju tipkom ▶
-5. Koristi Serial Monitor za praćenje ispisa i slanje naredbi
-
-### Lokalno (PlatformIO / Arduino IDE)
-
-1. Kloniraj repozitorij
-2. Otvori projekt u Arduino IDE ili VS Code s PlatformIO
-3. Odaberi ploču: `ESP32 Dev Module`
-4. Upload kod na ESP32
-5. Otvori Serial Monitor na 115200 baud
+https://wokwi.com/projects/459217890839149569
 
 ---
 
