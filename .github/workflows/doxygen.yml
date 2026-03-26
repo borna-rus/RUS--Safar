@@ -5,33 +5,24 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
-  doxygen:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: Checkout repozitorija
+        uses: actions/checkout@v3
 
-      - name: Install Doxygen and Graphviz
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y doxygen graphviz
+      - name: Instaliraj Doxygen i Graphviz
+        run: sudo apt-get install -y doxygen graphviz
 
-      - name: Generate Documentation
+      - name: Generiraj Doxygen dokumentaciju
         run: |
           cd Lab1
           doxygen Doxyfile
-          if [ ! -f "docs/index.html" ]; then
-            echo "Error: docs/index.html not found!"
-            exit 1
-          fi
 
-      - name: Deploy to GitHub Pages
+      - name: Objavi na GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./Lab1/docs
+          publish_dir: ./Lab1/docs/html
