@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['esp32_0',['Smart Garage System – ESP32',['../index.html',1,'']]]
+  ['lab1_0',['RUS Lab1',['../index.html',1,'']]]
 ];
