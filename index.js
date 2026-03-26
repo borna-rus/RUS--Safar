@@ -5,7 +5,6 @@ var index =
       [ "Opis sustava", "index.html#autotoc_md4", null ],
       [ "Korištene komponente", "index.html#autotoc_md6", null ],
       [ "Shema spajanja", "index.html#autotoc_md8", null ],
-      [ "</blockquote>", "index.html#autotoc_md9", null ],
       [ "Prioriteti prekida", "index.html#autotoc_md10", null ],
       [ "Opis prekida i ISR funkcija", "index.html#autotoc_md12", [
         [ "ISR_STOP — P1 (najviši prioritet)", "index.html#autotoc_md13", null ],

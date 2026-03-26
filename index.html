@@ -177,11 +177,8 @@ Shema spajanja</h2>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">HC-SR04 ECHO   </td><td class="markdownTableBodyNone">GPIO 16   </td></tr>
 </table>
-<blockquote class="doxtable">
-<p>&zwj;<b>Napomena:</b> GPIO 26 korišten je za STOP tipku umjesto GPIO 33 jer su GPIO 33–39 input-only pinovi bez internog pull-up otpornika. GPIO 16 korišten je za ECHO umjesto GPIO 5 koji je strapping pin. </p>
-</blockquote>
-<h2><a class="anchor" id="autotoc_md9"></a>
-&lt;/blockquote&gt;</h2>
+<p><b>Napomena:</b> GPIO 26 korišten je za STOP tipku umjesto GPIO 33 jer su GPIO 33–39 input-only pinovi bez internog pull-up otpornika. GPIO 16 korišten je za ECHO umjesto GPIO 5 koji je strapping pin.</p>
+<hr  />
 <h2><a class="anchor" id="autotoc_md10"></a>
 Prioriteti prekida</h2>
 <p>Prioriteti su definirani redoslijedom provjere zastavica u <code><a class="el" href="d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a></code> funkciji. ESP32 ne podržava klasične nested interrupts na razini hardvera kao ARM Cortex-M, već koristi FreeRTOS task prioritete. Softverski prioritet postignut je redoslijedom obrade zastavica.</p>
