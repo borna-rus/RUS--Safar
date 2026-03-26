@@ -1,3 +1,5 @@
+@mainpage RUS Lab1
+
 # Smart Garage System – ESP32
 
 Projekt demonstrira upravljanje višestrukim prekidima i njihovim prioritetima na ESP32 mikrokontroleru. Sustav simulira pametnu garažu s automatskim zatvaranjem vrata, detekcijom vozila i mogućnošću servisnog moda.
