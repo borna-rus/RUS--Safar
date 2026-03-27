@@ -19,11 +19,11 @@
 
 // PINOVI
 
-#define LED_DOOR     18   //< LED zelena  - status vrata
-#define LED_STOP     19   //< LED crvena  - emergency stop
-#define LED_SERVICE  21   //< LED zuta    - servis mod
-#define LED_ALERT    22   //< LED zuta    - detekcija auta
-#define LED_TIMER    23   //< LED plava   - timer tik
+#define LED_DOOR     18   ///< LED zelena  - status vrata
+#define LED_STOP     19   ///< LED crvena  - emergency stop
+#define LED_SERVICE  21   ///< LED zuta    - servis mod
+#define LED_ALERT    22   ///< LED zuta    - detekcija auta
+#define LED_TIMER    23   ///< LED plava   - timer tik
 
 #define BUTTON_DOOR     13  ///< Tipka zelena  - otvori/zatvori vrata (P3)
 #define BUTTON_STOP     26  ///< Tipka crvena  - emergency stop (P1) [bio GPIO 33 - input only!]
