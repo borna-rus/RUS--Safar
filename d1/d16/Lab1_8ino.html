@@ -97,24 +97,34 @@ $(document).ready(function(){initNavTree('d1/d16/Lab1_8ino.html','../../'); init
   <div class="headertitle"><div class="title">Lab1.ino File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Smart Garage System - ESP32 (Wokwi kompatibilna verzija)  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;Arduino.h&gt;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Include dependency graph for Lab1.ino:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d1/df0/Lab1_8ino__incl.png" border="0" usemap="#aLab1_8ino" alt=""/></div>
+<map name="aLab1_8ino" id="aLab1_8ino">
+<area shape="rect" title="Smart Garage System &#45; ESP32 (Wokwi kompatibilna verzija)" alt="" coords="9,5,86,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,89,104"/>
+<area shape="poly" title=" " alt="" coords="50,31,50,65,45,65,45,31"/>
+</map>
+</div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:af6dd47b9ae740c47739ab47859bb16ea" id="r_af6dd47b9ae740c47739ab47859bb16ea"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d16/Lab1_8ino.html#af6dd47b9ae740c47739ab47859bb16ea">LED_DOOR</a>&#160;&#160;&#160;18</td></tr>
-<tr class="memdesc:af6dd47b9ae740c47739ab47859bb16ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED zelena - status vrata.  <br /></td></tr>
 <tr class="separator:af6dd47b9ae740c47739ab47859bb16ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af17fb09e19b6d95827dc27aacb7a1a98" id="r_af17fb09e19b6d95827dc27aacb7a1a98"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d16/Lab1_8ino.html#af17fb09e19b6d95827dc27aacb7a1a98">LED_STOP</a>&#160;&#160;&#160;19</td></tr>
-<tr class="memdesc:af17fb09e19b6d95827dc27aacb7a1a98"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED crvena - emergency stop.  <br /></td></tr>
 <tr class="separator:af17fb09e19b6d95827dc27aacb7a1a98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae084b8195ec0bf5c871b87826089b0d3" id="r_ae084b8195ec0bf5c871b87826089b0d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d16/Lab1_8ino.html#ae084b8195ec0bf5c871b87826089b0d3">LED_SERVICE</a>&#160;&#160;&#160;21</td></tr>
-<tr class="memdesc:ae084b8195ec0bf5c871b87826089b0d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED zuta - servis mod.  <br /></td></tr>
 <tr class="separator:ae084b8195ec0bf5c871b87826089b0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1136d55e3641625b98820033538f5928" id="r_a1136d55e3641625b98820033538f5928"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d16/Lab1_8ino.html#a1136d55e3641625b98820033538f5928">LED_ALERT</a>&#160;&#160;&#160;22</td></tr>
-<tr class="memdesc:a1136d55e3641625b98820033538f5928"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED zuta - detekcija auta.  <br /></td></tr>
 <tr class="separator:a1136d55e3641625b98820033538f5928"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade3a58ca3fc05681b689884e377a37d5" id="r_ade3a58ca3fc05681b689884e377a37d5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d16/Lab1_8ino.html#ade3a58ca3fc05681b689884e377a37d5">LED_TIMER</a>&#160;&#160;&#160;23</td></tr>
-<tr class="memdesc:ade3a58ca3fc05681b689884e377a37d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">LED plava - timer tik.  <br /></td></tr>
 <tr class="separator:ade3a58ca3fc05681b689884e377a37d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7012f103552dfe6cc48a77225fcb40e" id="r_ab7012f103552dfe6cc48a77225fcb40e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d16/Lab1_8ino.html#ab7012f103552dfe6cc48a77225fcb40e">BUTTON_DOOR</a>&#160;&#160;&#160;13</td></tr>
 <tr class="memdesc:ab7012f103552dfe6cc48a77225fcb40e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tipka zelena - otvori/zatvori vrata (P3)  <br /></td></tr>
@@ -201,7 +211,15 @@ Variables</h2></td></tr>
 <tr class="memitem:a7f4cb9eca9dcf4fa49859c221f48ec90" id="r_a7f4cb9eca9dcf4fa49859c221f48ec90"><td class="memItemLeft" align="right" valign="top">hw_timer_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d1/d16/Lab1_8ino.html#a7f4cb9eca9dcf4fa49859c221f48ec90">hwTimer</a> = NULL</td></tr>
 <tr class="separator:a7f4cb9eca9dcf4fa49859c221f48ec90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Smart Garage System - ESP32 (Wokwi kompatibilna verzija) </p>
+<p>Prioriteti prekida: P1 (najviši) - STOP tipka (GPIO 26) - emergency stop P2 - Hardware Timer (1 Hz) - periodička logika P3 - DOOR tipka (GPIO 13) - upravljanje vratima P4 - SERVICE tipka (GPIO 25) - servis mod P5 (najniži) - HC-SR04 senzor (polling) - detekcija auta</p>
+<p>Zaštita resursa:</p><ul>
+<li>portMUX_TYPE + portENTER_CRITICAL / portEXIT_CRITICAL u <a class="el" href="../../d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a></li>
+<li>portENTER_CRITICAL_ISR / portEXIT_CRITICAL_ISR u ISR-ima</li>
+<li>Volatile zastavice za komunikaciju ISR -&gt; <a class="el" href="../../d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a> </li>
+</ul>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ae200b16c623747307b3d9842588a40a7" name="ae200b16c623747307b3d9842588a40a7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae200b16c623747307b3d9842588a40a7">&#9670;&#160;</a></span>AUTO_CLOSE_TICKS</h2>
 
@@ -326,8 +344,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>LED zuta - detekcija auta. </p>
-
 </div>
 </div>
 <a id="af6dd47b9ae740c47739ab47859bb16ea" name="af6dd47b9ae740c47739ab47859bb16ea"></a>
@@ -341,8 +357,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>LED zelena - status vrata. </p>
 
 </div>
 </div>
@@ -358,8 +372,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>LED zuta - servis mod. </p>
-
 </div>
 </div>
 <a id="af17fb09e19b6d95827dc27aacb7a1a98" name="af17fb09e19b6d95827dc27aacb7a1a98"></a>
@@ -374,8 +386,6 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>LED crvena - emergency stop. </p>
-
 </div>
 </div>
 <a id="ade3a58ca3fc05681b689884e377a37d5" name="ade3a58ca3fc05681b689884e377a37d5"></a>
@@ -389,8 +399,6 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>LED plava - timer tik. </p>
 
 </div>
 </div>
@@ -428,11 +436,11 @@ Variables</h2></td></tr>
 
 <p>ISR za DOOR tipku - srednji prioritet (P3). </p>
 <p>Postavlja flag_door. Obrađuje se u <a class="el" href="../../d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a> nakon provjere flag_stop i flag_timer. </p>
-<div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d16/Lab1_8ino_abd665b87f112f1654d885dd82cc2d4f0_icgraph.png" border="0" usemap="#ad1/d16/Lab1_8ino_abd665b87f112f1654d885dd82cc2d4f0_icgraph" alt=""/></div>
 <map name="ad1/d16/Lab1_8ino_abd665b87f112f1654d885dd82cc2d4f0_icgraph" id="ad1/d16/Lab1_8ino_abd665b87f112f1654d885dd82cc2d4f0_icgraph">
 <area shape="rect" title="ISR za DOOR tipku &#45; srednji prioritet (P3)." alt="" coords="112,5,201,31"/>
@@ -460,11 +468,11 @@ Variables</h2></td></tr>
 
 <p>ISR hardware timera - okida se svaku sekundu. </p>
 <p>Postavlja flag_timer koji <a class="el" href="../../d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a> obrađuje. Nema debounce logike jer je hardware timer precizan i stabilan izvor. </p>
-<div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d16/Lab1_8ino_aa0306b62478d773bd522890f56bb97ee_icgraph.png" border="0" usemap="#ad1/d16/Lab1_8ino_aa0306b62478d773bd522890f56bb97ee_icgraph" alt=""/></div>
 <map name="ad1/d16/Lab1_8ino_aa0306b62478d773bd522890f56bb97ee_icgraph" id="ad1/d16/Lab1_8ino_aa0306b62478d773bd522890f56bb97ee_icgraph">
 <area shape="rect" title="ISR hardware timera &#45; okida se svaku sekundu." alt="" coords="112,5,223,31"/>
@@ -492,11 +500,11 @@ Variables</h2></td></tr>
 
 <p>ISR za SERVICE tipku - niski prioritet (P4). </p>
 <p>Postavlja flag_service. Obrađuje se u <a class="el" href="../../d1/d16/Lab1_8ino.html#afe461d27b9c48d5921c00d521181f12f" title="Glavna petlja - obrađuje zastavice prema prioritetu.">loop()</a> zadnja od svih tipkala. </p>
-<div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-2-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d16/Lab1_8ino_a393a9c328a7e2868d304c373218d59f9_icgraph.png" border="0" usemap="#ad1/d16/Lab1_8ino_a393a9c328a7e2868d304c373218d59f9_icgraph" alt=""/></div>
 <map name="ad1/d16/Lab1_8ino_a393a9c328a7e2868d304c373218d59f9_icgraph" id="ad1/d16/Lab1_8ino_a393a9c328a7e2868d304c373218d59f9_icgraph">
 <area shape="rect" title="ISR za SERVICE tipku &#45; niski prioritet (P4)." alt="" coords="112,5,217,31"/>
@@ -524,11 +532,11 @@ Variables</h2></td></tr>
 
 <p>ISR za STOP tipku - najviši prioritet (P1). </p>
 <p>Postavlja flag_stop. Debounce sprječava višestruko okidanje od jednog pritiska tipke. </p>
-<div id="dynsection-3" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-3-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d16/Lab1_8ino_adeb2908c3c34987ee1085b558d06d69a_icgraph.png" border="0" usemap="#ad1/d16/Lab1_8ino_adeb2908c3c34987ee1085b558d06d69a_icgraph" alt=""/></div>
 <map name="ad1/d16/Lab1_8ino_adeb2908c3c34987ee1085b558d06d69a_icgraph" id="ad1/d16/Lab1_8ino_adeb2908c3c34987ee1085b558d06d69a_icgraph">
 <area shape="rect" title="ISR za STOP tipku &#45; najviši prioritet (P1)." alt="" coords="112,5,196,31"/>
@@ -562,11 +570,11 @@ Variables</h2></td></tr>
 <li>flag_service - toggle servis mod</li>
 <li>senzor - polling detekcije auta </li>
 </ol>
-<div id="dynsection-4" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-4-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d16/Lab1_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph.png" border="0" usemap="#ad1/d16/Lab1_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" alt=""/></div>
 <map name="ad1/d16/Lab1_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph" id="ad1/d16/Lab1_8ino_afe461d27b9c48d5921c00d521181f12f_cgraph">
 <area shape="rect" title="Glavna petlja &#45; obrađuje zastavice prema prioritetu." alt="" coords="5,5,56,31"/>
@@ -595,11 +603,11 @@ Variables</h2></td></tr>
 <p>Mjeri udaljenost HC-SR04 senzorom. </p>
 <p>Šalje 10 µs trigger puls i mjeri echo. Timeout 30 ms spriječava blokiranje loop-a.</p>
 <dl class="section return"><dt>Returns</dt><dd>Udaljenost u cm, ili 0 ako je mjerenje neispravno. </dd></dl>
-<div id="dynsection-5" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-5-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
-<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d16/Lab1_8ino_a24db61917b9da8bb4b87af136cbd345f_icgraph.png" border="0" usemap="#ad1/d16/Lab1_8ino_a24db61917b9da8bb4b87af136cbd345f_icgraph" alt=""/></div>
 <map name="ad1/d16/Lab1_8ino_a24db61917b9da8bb4b87af136cbd345f_icgraph" id="ad1/d16/Lab1_8ino_a24db61917b9da8bb4b87af136cbd345f_icgraph">
 <area shape="rect" title="Mjeri udaljenost HC&#45;SR04 senzorom." alt="" coords="104,5,240,31"/>
@@ -628,11 +636,11 @@ Variables</h2></td></tr>
 <p>Inicijalizacija sustava - pinovi, timer, prekidi. </p>
 <p>Poziva se jednom pri pokretanju. Postavlja sve GPIO pinove, inicijalizira hardware timer na 1 Hz i registrira ISR funkcije. </p>
 <p>&lt; Čekaj stabilizaciju pinova pri bootu</p>
-<div id="dynsection-6" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
-  <img id="dynsection-6-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
-<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+<div id="dynsection-7" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-7-trigger" src="../../closed.png" alt="+"/> Here is the call graph for this function:</div>
+<div id="dynsection-7-summary" class="dynsummary" style="display:block;">
 </div>
-<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div id="dynsection-7-content" class="dyncontent" style="display:none;">
 <div class="center"><img src="../../d1/d16/Lab1_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph.png" border="0" usemap="#ad1/d16/Lab1_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph" alt=""/></div>
 <map name="ad1/d16/Lab1_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph" id="ad1/d16/Lab1_8ino_a4fc01d736fe50cf5b977f755b675f11d_cgraph">
 <area shape="rect" title="Inicijalizacija sustava &#45; pinovi, timer, prekidi." alt="" coords="5,80,64,105"/>
