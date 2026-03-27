@@ -1,5 +1,5 @@
 /**
- * @file smart_garage.ino
+ * @file Lab1.ino
  * @brief Smart Garage System - ESP32 (Wokwi kompatibilna verzija)
  *
  * Prioriteti prekida:
@@ -17,13 +17,13 @@
 
 #include <Arduino.h>
 
-// ===================== PINOVI =====================
+// PINOVI
 
-#define LED_DOOR     18   ///< LED zelena  - status vrata
-#define LED_STOP     19   ///< LED crvena  - emergency stop
-#define LED_SERVICE  21   ///< LED zuta    - servis mod
-#define LED_ALERT    22   ///< LED zuta    - detekcija auta
-#define LED_TIMER    23   ///< LED plava   - timer tik
+#define LED_DOOR     18   //< LED zelena  - status vrata
+#define LED_STOP     19   //< LED crvena  - emergency stop
+#define LED_SERVICE  21   //< LED zuta    - servis mod
+#define LED_ALERT    22   //< LED zuta    - detekcija auta
+#define LED_TIMER    23   //< LED plava   - timer tik
 
 #define BUTTON_DOOR     13  ///< Tipka zelena  - otvori/zatvori vrata (P3)
 #define BUTTON_STOP     26  ///< Tipka crvena  - emergency stop (P1) [bio GPIO 33 - input only!]
@@ -32,24 +32,24 @@
 #define TRIG_PIN  4   ///< HC-SR04 trigger
 #define ECHO_PIN  16  ///< HC-SR04 echo [bio GPIO 5 - strapping pin!]
 
-// ===================== KONSTANTE =====================
+// KONSTANTE
 
 #define DEBOUNCE_MS      200  ///< Debounce prag u ms
 #define CAR_DISTANCE_CM   50  ///< Prag detekcije auta u cm
 #define AUTO_CLOSE_TICKS   5  ///< Timer tikova do auto-zatvaranja vrata
 
-// ===================== MUTEX =====================
+// MUTEX
 
 static portMUX_TYPE mux = portMUX_INITIALIZER_UNLOCKED;
 
-// ===================== VOLATILE ZASTAVICE =====================
+// VOLATILE ZASTAVICE
 
 volatile bool flag_door    = false;  ///< Tipka vrata pritisnuta
 volatile bool flag_stop    = false;  ///< Emergency stop aktiviran
 volatile bool flag_service = false;  ///< Tipka servis pritisnuta
 volatile bool flag_timer   = false;  ///< Hardware timer okidan
 
-// ===================== STANJE SUSTAVA =====================
+// STANJE SUSTAVA
 
 bool doorOpen      = false;  ///< Vrata otvorena
 bool emergencyStop = false;  ///< Sustav u emergency stopu
@@ -58,11 +58,11 @@ bool carDetected   = false;  ///< Auto detektiran
 
 int timerTickCount = 0;  ///< Broj tikova od zadnjeg otvaranja vrata
 
-// ===================== DEBOUNCE =====================
+// DEBOUNCE
 
 volatile unsigned long lastInterrupt[3] = {0, 0, 0};
 
-// ===================== HARDWARE TIMER =====================
+// HARDWARE TIMER
 
 hw_timer_t *hwTimer = NULL;
 
@@ -78,7 +78,7 @@ void IRAM_ATTR ISR_HWTimer() {
   portEXIT_CRITICAL_ISR(&mux);
 }
 
-// ===================== ISR - TIPKE =====================
+// ISR - TIPKE
 
 /**
  * @brief ISR za STOP tipku - najviši prioritet (P1).
@@ -125,7 +125,7 @@ void IRAM_ATTR ISR_SERVICE() {
   portEXIT_CRITICAL_ISR(&mux);
 }
 
-// ===================== SETUP =====================
+// SETUP
 
 /**
  * @brief Inicijalizacija sustava - pinovi, timer, prekidi.
@@ -135,7 +135,7 @@ void IRAM_ATTR ISR_SERVICE() {
  */
 void setup() {
   Serial.begin(115200);
-  Serial.println("=== SMART GARAGE ESP32 START ===");
+  Serial.println("SMART GARAGE ESP32 START");
   delay(2000);  ///< Čekaj stabilizaciju pinova pri bootu
 
   // LED izlazi
@@ -163,7 +163,7 @@ void setup() {
   pinMode(ECHO_PIN, INPUT);
   digitalWrite(TRIG_PIN, LOW);
 
-  // ---- Hardware Timer (ESP32 Arduino Core 3.x API) ----
+  // Hardware Timer (ESP32 Arduino Core 3.x API)
   // timerBegin prima frekvenciju timera u Hz
   // 1.000.000 Hz = 1 MHz = rezolucija 1 mikrosekunda
   hwTimer = timerBegin(1000000);
@@ -182,10 +182,10 @@ void setup() {
   Serial.println("Senzor         : TRIG=4, ECHO=16");
   Serial.println("Prioriteti: STOP(P1) > TIMER(P2) > DOOR(P3) > SERVICE(P4) > SENZOR(P5)");
   Serial.println("Tip 'r' u Serial Monitor za reset emergency stopa.");
-  Serial.println("================================");
+  Serial.println("-------------------------");
 }
 
-// ===================== LOOP =====================
+// LOOP
 
 /**
  * @brief Glavna petlja - obrađuje zastavice prema prioritetu.
@@ -199,9 +199,7 @@ void setup() {
  */
 void loop() {
 
-  // ==================================================
   // P1: EMERGENCY STOP - uvijek se provjerava prvi
-  // ==================================================
   bool localStop = false;
   portENTER_CRITICAL(&mux);
   localStop = flag_stop;
@@ -235,9 +233,7 @@ void loop() {
     return;  // Blokiraj sve dok je emergency stop aktivan
   }
 
-  // ==================================================
   // P2: HARDWARE TIMER
-  // ==================================================
   bool localTimer = false;
   portENTER_CRITICAL(&mux);
   localTimer = flag_timer;
@@ -271,9 +267,7 @@ void loop() {
     }
   }
 
-  // ==================================================
   // P3: VRATA
-  // ==================================================
   bool localDoor = false;
   portENTER_CRITICAL(&mux);
   localDoor = flag_door;
@@ -291,9 +285,7 @@ void loop() {
     }
   }
 
-  // ==================================================
   // P4: SERVIS MOD
-  // ==================================================
   bool localService = false;
   portENTER_CRITICAL(&mux);
   localService = flag_service;
@@ -306,9 +298,7 @@ void loop() {
     Serial.println(serviceMode ? "UKLJUCEN" : "ISKLJUCEN");
   }
 
-  // ==================================================
   // P5: HC-SR04 SENZOR (polling, najniži prioritet)
-  // ==================================================
   float dist   = measureDistance();
   bool prevCar = carDetected;
   carDetected  = (dist > 0 && dist < CAR_DISTANCE_CM);
@@ -321,16 +311,14 @@ void loop() {
     Serial.println(" cm)");
   }
 
-  // ==================================================
   // Ažuriraj LED status
-  // ==================================================
   digitalWrite(LED_DOOR,    doorOpen      ? HIGH : LOW);
   digitalWrite(LED_SERVICE, serviceMode   ? HIGH : LOW);
   digitalWrite(LED_ALERT,   carDetected   ? HIGH : LOW);
   digitalWrite(LED_STOP,    emergencyStop ? HIGH : LOW);
 }
 
-// ===================== SENZOR =====================
+// SENZOR
 
 /**
  * @brief Mjeri udaljenost HC-SR04 senzorom.
