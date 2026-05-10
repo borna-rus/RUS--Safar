@@ -1,0 +1,7 @@
+[wokwi]
+version = 1
+firmware = "main.ino"
+elf = "main.ino.elf"
+
+[[lib]]
+name = "DHT sensor library"
