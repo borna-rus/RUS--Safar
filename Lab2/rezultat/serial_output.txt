@@ -1,0 +1,110 @@
+ets Jul 29 2019 12:21:46
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:1156
+load:0x40078000,len:11456
+ho 0 tail 12 room 4
+load:0x40080400,len:2972
+entry 0x400805dc
+
+--- ESP32 Datalogger pokrenut ---
+Platforma  : ESP32
+Sleep mode : Light Sleep
+Buđenje    : Timer (svakih 10s)
+Memorija   : RTC_DATA_ATTR
+--------------------------------
+
+> AKTIVNA FAZA <
+Mjerenje #1 | Temp: 24.00 C | Vlaga: 40.00 %
+>>> ULAZAK U LIGHT SLEEP (10 sekundi) <<<
+
+Gašenje periferija...
+> BUĐENJE IZ LIGHT SLEEP <
+Ukupno buđenja: 1
+> AKTIVNA FAZA <
+Mjerenje #2 | Temp: 24.00 C | Vlaga: 40.00 %
+>>> ULAZAK U LIGHT SLEEP (10 sekundi) <<<
+
+Gašenje periferija...
+> BUĐENJE IZ LIGHT SLEEP <
+Ukupno buđenja: 2
+> AKTIVNA FAZA <
+Mjerenje #3 | Temp: 44.80 C | Vlaga: 80.50 %
+>>> ULAZAK U LIGHT SLEEP (10 sekundi) <<<
+
+Gašenje periferija...
+> BUĐENJE IZ LIGHT SLEEP <
+Ukupno buđenja: 3
+> AKTIVNA FAZA <
+Mjerenje #4 | Temp: 44.80 C | Vlaga: 80.50 %
+>>> ULAZAK U LIGHT SLEEP (10 sekundi) <<<
+
+Gašenje periferija...
+> BUĐENJE IZ LIGHT SLEEP <
+Ukupno buđenja: 4
+> AKTIVNA FAZA <
+Mjerenje #5 | Temp: -25.30 C | Vlaga: 14.00 %
+>>> ULAZAK U LIGHT SLEEP (10 sekundi) <<<
+
+Gašenje periferija...
+> BUĐENJE IZ LIGHT SLEEP <
+Ukupno buđenja: 5
+> AKTIVNA FAZA <
+Mjerenje #6 | Temp: -25.30 C | Vlaga: 14.00 %
+>>> ULAZAK U LIGHT SLEEP (10 sekundi) <<<
+
+Gašenje periferija...
+> BUĐENJE IZ LIGHT SLEEP <
+Ukupno buđenja: 6
+> AKTIVNA FAZA <
+Mjerenje #7 | Temp: -25.30 C | Vlaga: 14.00 %
+>>> ULAZAK U LIGHT SLEEP (10 sekundi) <<<
+
+Gašenje periferija...
+> BUĐENJE IZ LIGHT SLEEP <
+Ukupno buđenja: 7
+> AKTIVNA FAZA <
+Mjerenje #8 | Temp: 50.10 C | Vlaga: 83.00 %
+>>> ULAZAK U LIGHT SLEEP (10 sekundi) <<<
+
+Gašenje periferija...
+> BUĐENJE IZ LIGHT SLEEP <
+Ukupno buđenja: 8
+> AKTIVNA FAZA <
+Mjerenje #9 | Temp: -29.60 C | Vlaga: 83.00 %
+>>> ULAZAK U LIGHT SLEEP (10 sekundi) <<<
+
+Gašenje periferija...
+> BUĐENJE IZ LIGHT SLEEP <
+Ukupno buđenja: 9
+> AKTIVNA FAZA <
+Mjerenje #10 | Temp: 43.70 C | Vlaga: 36.00 %
+
+=== SVIH 10 MJERENJA ===
+  [1] Temp: 24.00 C | Vlaga: 40.00 %
+  [2] Temp: 24.00 C | Vlaga: 40.00 %
+  [3] Temp: 44.80 C | Vlaga: 80.50 %
+  [4] Temp: 44.80 C | Vlaga: 80.50 %
+  [5] Temp: -25.30 C | Vlaga: 14.00 %
+  [6] Temp: -25.30 C | Vlaga: 14.00 %
+  [7] Temp: -25.30 C | Vlaga: 14.00 %
+  [8] Temp: 50.10 C | Vlaga: 83.00 %
+  [9] Temp: -29.60 C | Vlaga: 83.00 %
+  [10] Temp: 43.70 C | Vlaga: 36.00 %
+============================
+
+Spremnik resetiran. Novi ciklus počinje...
+
+>>> ULAZAK U LIGHT SLEEP (10 sekundi) <<<
+
+Gašenje periferija...
+> BUĐENJE IZ LIGHT SLEEP <
+Ukupno buđenja: 10
+> AKTIVNA FAZA <
+Mjerenje #11 | Temp: 43.70 C | Vlaga: 69.00 %
+>>> ULAZAK U LIGHT SLEEP (10 sekundi) <<<
+
+Gašenje periferija...
