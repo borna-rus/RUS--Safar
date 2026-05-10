@@ -81,9 +81,9 @@ void disablePeripherals() {
 
 //ULAZAK U LIGHT SLEEP
 void goToSleep() {
-  Serial.print(">>> ULAZAK U LIGHT SLEEP (");
+  Serial.print("> ULAZAK U LIGHT SLEEP (");
   Serial.print(SLEEP_SECONDS);
-  Serial.println(" sekundi) <<<\n");
+  Serial.println(" sekundi) <\n");
   delay(100);
 
   disablePeripherals();
